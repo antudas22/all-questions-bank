@@ -21,7 +21,7 @@ const RootLayout = ({children}) => {
         <html lang="en">
             <body className={classNames(
           roboto.variable,
-          "container mx-auto px-2 font-roboto lg:px-32"
+          "container mx-auto px-1 font-roboto lg:px-32"
         )}>
                 <div className="flex min-h-screen flex-col justify-between">
                     <div>
