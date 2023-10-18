@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '@/components/Navbar'
+import Dropdownbar from '@/components/Dropdownbar'
 import Footer from '@/components/Footer'
 import { Roboto } from "next/font/google";
 import classNames from "@/utils/classNames";
@@ -26,6 +27,7 @@ const RootLayout = ({children}) => {
                 <div className="flex min-h-screen flex-col justify-between">
                     <div>
                         <Navbar />
+                        <Dropdownbar />
                         <main>{children}</main>
                     </div>
                     <Footer />

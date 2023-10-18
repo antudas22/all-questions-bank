@@ -1,0 +1,29 @@
+.menu-box a:hover{
+    color: #e11d48;
+}
+.sub-menu-1{
+    display: none;
+}
+.menu-box ul li:hover .sub-menu-1{
+    display: block;
+    position: absolute;
+    background-color: #e4e4e7;
+    padding: 10px;
+}
+.menu-box ul li:hover .sub-menu-1 ul li{
+    padding: 10px;
+    border-bottom: 1px dotted black;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+    margin: 5px;
+}
+.menu-box ul li:hover .sub-menu-1 ul li:last-child{
+    border-bottom: none;
+}
+.menu-box ul li .sub-menu-1 ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+}
