@@ -1,22 +1,25 @@
 .menu-box a:hover{
     color: #e11d48;
 }
+.menu-box > ul > li{
+    padding: 4px;
+}
 .sub-menu-1{
     display: none;
+    border: 1px solid gray;
+    margin-top: 4px;
 }
 .menu-box ul li:hover .sub-menu-1{
     display: block;
     position: absolute;
     background-color: #e4e4e7;
-    padding: 10px;
 }
 .menu-box ul li:hover .sub-menu-1 ul li{
-    padding: 10px;
+    padding: 13px;
     border-bottom: 1px dotted black;
     background: transparent;
     border-radius: 0;
     text-align: left;
-    margin: 5px;
 }
 .menu-box ul li:hover .sub-menu-1 ul li:last-child{
     border-bottom: none;
@@ -26,4 +29,63 @@
     align-items: center;
     justify-content: space-between;
     gap: 4px;
+}
+.sub-menu-2{
+    display: none;
+}
+.hover-action:hover .sub-menu-2{
+    position: absolute;
+    display: block;
+    border: 1px solid gray;
+    margin-top: -38px;
+    margin-left: 180px;
+    background-color: #e4e4e7;
+}
+.hover-action-2:hover .sub-menu-2{
+    position: absolute;
+    display: block;
+    border: 1px solid gray;
+    margin-top: -38px;
+    margin-left: 227.5px;
+    background-color: #e4e4e7;
+}
+.hover-action-3:hover .sub-menu-2{
+    position: absolute;
+    display: block;
+    border: 1px solid gray;
+    margin-top: -38px;
+    margin-left: 100px;
+    background-color: #e4e4e7;
+}
+.hover-action-4:hover .sub-menu-2{
+    position: absolute;
+    display: block;
+    border: 1px solid gray;
+    margin-top: -38px;
+    margin-left: 162.5px;
+    background-color: #e4e4e7;
+}
+.hover-action-5:hover .sub-menu-2{
+    position: absolute;
+    display: block;
+    border: 1px solid gray;
+    margin-top: -38px;
+    margin-left: 89px;
+    background-color: #e4e4e7;
+}
+.hover-action-6:hover .sub-menu-2{
+    position: absolute;
+    display: block;
+    border: 1px solid gray;
+    margin-top: -38px;
+    margin-left: -127px;
+    background-color: #e4e4e7;
+}
+.hover-action-7:hover .sub-menu-2{
+    position: absolute;
+    display: block;
+    border: 1px solid gray;
+    margin-top: -38px;
+    margin-left: -102px;
+    background-color: #e4e4e7;
 }
