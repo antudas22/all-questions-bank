@@ -14,18 +14,60 @@ const Dropdownbar = () => {
                   <li className='hover-action'><a href="#">SSC <BiRightArrow/></a>
                   <div className="sub-menu-2">
                       <ul>
-                        <li><a href="#">Science</a></li>
-                        <li><a href="#">Commerce</a></li>
-                        <li><a href="#">Humanities</a></li>
+                        <li className='second-hover-action'><a href="#">Science</a>
+                          <div className="sub-menu-3">
+                            <ul>
+                              <li><a className='w-[125px]' href="#">Board Questions</a></li>
+                              <li><a href="#">Test Paper</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li className='second-hover-action'><a href="#">Commerce</a>
+                          <div className="sub-menu-3">
+                            <ul>
+                              <li><a className='w-[125px]' href="#">Board Questions</a></li>
+                              <li><a href="#">Test Paper</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li className='second-hover-action'><a href="#">Humanities</a>
+                          <div className="sub-menu-3">
+                            <ul>
+                              <li><a className='w-[125px]' href="#">Board Questions</a></li>
+                              <li><a href="#">Test Paper</a></li>
+                            </ul>
+                          </div>
+                        </li>
                       </ul>
                     </div>
                   </li>
                   <li className='hover-action'><a href="#">HSC <BiRightArrow/></a>
                     <div className="sub-menu-2">
                       <ul>
-                        <li><a href="#">Science</a></li>
-                        <li><a href="#">Commerce</a></li>
-                        <li><a href="#">Humanities</a></li>
+                        <li className='second-hover-action'><a href="#">Science</a>
+                        <div className="sub-menu-3">
+                            <ul>
+                              <li><a className='w-[125px]' href="#">Board Questions</a></li>
+                              <li><a href="#">Test Paper</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li className='second-hover-action'><a href="#">Commerce</a>
+                        <div className="sub-menu-3">
+                            <ul>
+                              <li><a className='w-[125px]' href="#">Board Questions</a></li>
+                              <li><a href="#">Test Paper</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li className='second-hover-action'><a href="#">Humanities</a>
+                        <div className="sub-menu-3">
+                            <ul>
+                              <li><a className='w-[125px]' href="#">Board Questions</a></li>
+                              <li><a href="#">Test Paper</a></li>
+                            </ul>
+                          </div>
+                        </li>
                       </ul>
                     </div>
                   </li>

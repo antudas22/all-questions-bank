@@ -89,3 +89,14 @@
     margin-left: -102px;
     background-color: #e4e4e7;
 }
+.sub-menu-3{
+    display: none;
+}
+.second-hover-action:hover .sub-menu-3{
+    position: absolute;
+    display: block;
+    border: 1px solid gray;
+    margin-top: -37.5px;
+    margin-left: 99px;
+    background-color: #e4e4e7;
+}
