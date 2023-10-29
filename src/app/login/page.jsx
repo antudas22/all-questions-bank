@@ -1,10 +1,19 @@
-import React from 'react';
+import LoginForm from './LoginForm';
+
+export const metadata = {
+    title: "Login - AQB"
+}
 
 const LoginPage = () => {
+
     return (
-        <div>
-            Login
-        </div>
+        <div className="flex justify-center">
+
+      {/* Login Form */}
+
+        <LoginForm />
+      
+    </div>
     );
 };
 

@@ -1,14 +1,33 @@
+"use client"
+
 import Link from 'next/link';
 import React from 'react';
+import useAuth from '@/hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
+
+  const { user, logOut } = useAuth();
+
+  const {uid, displayName, photoURL} = user || {};
+
+  const handleLogout = async () => {
+    await logOut();
+    toast.success('Successfully Logged Out')
+  }
 
     const menu = <>
         <li> <a href="/">Home</a> </li>
         <li> <a href="about">About Us</a> </li>
         <li> <a href="contact">Contact Us</a> </li>
         <li> <a href="blog">Blog</a> </li>
-        <li> <Link className='bg-rose-600 text-xl font-bold text-white px-5 py-2 rounded-md hover:rounded-full' href="login">Login</Link> </li>
+        <li>
+          {
+            uid ? <button onClick={handleLogout} className='bg-rose-600 text-xl font-bold text-white px-5 py-2 rounded-md hover:rounded-full' href="login">Logout</button>
+            :
+            <Link className='bg-rose-600 text-xl font-bold text-white px-5 py-2 rounded-md hover:rounded-full' href="login">Login</Link>
+          }
+        </li>
     </>
 
     return (
