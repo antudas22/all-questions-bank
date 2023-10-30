@@ -1,65 +1,74 @@
-import AuthContext from '@/contexts/AuthContext';
-import auth, { googleProvider } from '@/firebase/firebase.auth';
+import app from "@/firebase/firebase.config";
 import {
-     createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, 
-     signInWithPopup, 
-     signOut, 
-     updateProfile 
-    } from 'firebase/auth';
-import React, { useEffect, useState } from 'react';
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
+import { createContext, useEffect, useState } from "react";
 
-const AuthProvider = ({children}) => {
+export const AuthContext = createContext(null);
 
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+const auth = getAuth(app);
 
-    const createUser = (email, password) => {
-        setLoading(true)
-        return createUserWithEmailAndPassword(auth, email, password)
+const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const createUser = (email, password) => {
+    setLoading(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const signIn = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const profileUpdate = async (updateUser = {}) => {
+    setLoading(true);
+    await updateProfile(auth.currentUser, updateUser);
+    setUser((preUser) => ({ ...preUser, ...updateUser }));
+  };
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const googleLogin = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  const logOut = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, currentUser => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+
+    () => {
+      unsubscribe();
     };
+  }, []);
 
-    const signIn = (email, password) => {
-        setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password)
-    };
+  const authInfo = {
+    user,
+    loading,
+    createUser,
+    signIn,
+    profileUpdate,
+    googleLogin,
+    logOut,
+  };
 
-    const profileUpdate = async (updateUser = {}) => {
-        setLoading(true);
-        await updateProfile(auth.currentUser, updateUser);
-        setUser((profile) => ({...preUser, ...updateUser}));
-    };
-
-    const googleLogin = () => {
-        setLoading(true);
-        return signInWithPopup(auth, googleProvider);
-    };
-
-    const logOut = () => {
-        setLoading(true);
-        return signOut(auth);
-    }
-
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-          setUser(user);
-          setLoading(false);
-        });
-    
-        () => {
-          unsubscribe();
-        };
-      }, []);
-
-    const authInfo = {
-        loading,
-        user,
-        createUser,
-        profileUpdate,
-        googleLogin,
-        signIn,
-        logOut
-    }
-    return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };
 
 export default AuthProvider;

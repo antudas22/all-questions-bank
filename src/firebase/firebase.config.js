@@ -5,13 +5,15 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_apiKey,
-  authDomain: process.env.NEXT_PUBLIC_authDomain,
-  projectId: process.env.NEXT_PUBLIC_projectId,
-  storageBucket: process.env.NEXT_PUBLIC_storageBucket,
-  messagingSenderId: process.env.NEXT_PUBLIC_messagingSenderId,
-  appId: process.env.NEXT_PUBLIC_appId
+  apiKey: "AIzaSyC-1YMYfhVuWQ6z12ekaH0KkVmKaCXEjWI",
+  authDomain: "all-questions-bank.firebaseapp.com",
+  projectId: "all-questions-bank",
+  storageBucket: "all-questions-bank.appspot.com",
+  messagingSenderId: "146848274484",
+  appId: "1:146848274484:web:a8ec63cc4139179a861261"
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+
+export default app;

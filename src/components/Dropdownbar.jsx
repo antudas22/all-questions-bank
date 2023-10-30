@@ -6,7 +6,7 @@ import './dropdownbar.css';
 const Dropdownbar = () => {
     return (
         <div className='menu-box'>
-            <ul className='flex bg-[#e4e4e7] justify-between items-center'>
+            <ul className='flex bg-[#e4e4e7] justify-between items-center rounded-md'>
             <li className='text-3xl cursor-pointer'><a href="#"><AiFillHome /></a></li>
             <li className='font-bold cursor-pointer'><a className='flex items-center gap-1' href="#">Board Exams <BiDownArrow/></a>
               <div className='sub-menu-1'>

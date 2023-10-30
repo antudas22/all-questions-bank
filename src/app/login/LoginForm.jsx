@@ -1,31 +1,50 @@
 "use client"
 
+
+import { AuthContext } from '../../providers/AuthProvider';
 import Link from 'next/link';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 
 const LoginForm = () => {
     const {register, formState: {errors}, handleSubmit} = useForm();
 
+    const {signIn, googleLogin} = useContext(AuthContext);
+
     // Login Handler
-    const handleLogin = e => {
-      e.preventDefault();
-      const form = e.target;
-      const email = form.email.value;
-      const password = form.password.value;
-      console.log(email, password);
-    //   signIn(email, password)
-    //   .then(result => {
-    //     const user = result.user;
-    //     console.log(user);
-    //   })
-    //   .catch(error => console.error(error));
+    const handleLogin = async (data) => {
+      const {email, password} = data;
+      const toastId = toast.loading("Loading...");
+      try{
+        const user = await signIn(email, password);
+        toast.dismiss(toastId);
+        toast.success('Successfully Signed In')
+      }
+      catch (error) {
+        toast.dismiss(toastId);
+        toast.error(error.message || 'Something went wrong!');
+      }
     }
 
-    // Password hide/show handler
+    // Google Login Handler
+
+    const handleGoogleLogin = async () => {
+      const toastId = toast.loading("Loading...");
+      try {
+        const user = await googleLogin();
+        toast.dismiss(toastId);
+        toast.success('Successfully Signed In')
+      }
+      catch (error) {
+        toast.dismiss(toastId);
+        toast.error(error.message || 'Something went wrong!');
+      }
+    }
 
     return (
         <div>
-            <div className="w-80 my-10 lg:mt-20">
+            <div className="w-80 my-10 border-2 border-rose-600 p-5 rounded-lg">
         <h2 className="text-3xl text-center md:text-5xl lg:text-5xl font-bold text-rose-600 mb-8">Login</h2>
         <form onSubmit={handleSubmit(handleLogin)}>
 
@@ -53,11 +72,11 @@ const LoginForm = () => {
 
         <input type="submit" value="Login" className="py-3 text-sm bg-rose-600 text-white uppercase rounded-md hover:rounded-full w-full cursor-pointer mt-5" />
 
-        <p className="text-center my-7">New to Repair Station? <Link className="text-rose-600" href='/register' >Register Now</Link></p>
+        <p className="text-center my-7">New to AQB? <Link className="text-rose-600" href='/register' >Register Now</Link></p>
 
         <div className="w-full h-[2px] bg-rose-600 rounded-full"></div>
 
-        <button className="py-3 text-sm border-2 border-rose-600 text-rose-600 uppercase rounded-md hover:rounded-full w-full cursor-pointer mt-7">Continue With Google</button>
+        <button onClick={handleGoogleLogin} className="py-3 text-sm border-2 border-rose-600 text-rose-600 uppercase rounded-md hover:rounded-full w-full cursor-pointer mt-7">Continue With Google</button>
 
         </form>
       </div>
