@@ -1,0 +1,13 @@
+.leave-message:hover{
+    padding-left: 300px;
+    cursor: pointer;
+}
+.message-box{
+    display: none;
+}
+
+.leave-message:hover .message-box{
+    position: absolute;
+    display: block;
+    left: 9px;
+}

@@ -7,6 +7,7 @@ import classNames from "@/utils/classNames";
 import "./globals.css";
 import { Toaster } from 'react-hot-toast';
 import Providers from '../providers';
+import LeaveMessage from '../components/LeaveMessage';
 
 const roboto = Roboto({
     weight: ["100", "300", "400", "500", "700", "900"],
@@ -34,6 +35,9 @@ const RootLayout = ({children}) => {
                         <main>{children}</main>
                     </div>
                     <Footer />
+                </div>
+                <div className='fixed bottom-5 right-5 z-50'>
+                  <LeaveMessage />
                 </div>
                 </Providers>
                     <Toaster />

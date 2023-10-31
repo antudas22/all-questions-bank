@@ -20,7 +20,7 @@ const Navbar = () => {
         <li className='w-full lg:w-auto'><Link href="/">Home</Link></li>
         <li className='w-full lg:w-auto'><Link href="about">About Us</Link></li>
         <li className='w-full lg:w-auto'><Link href="contact">Contact Us</Link></li>
-        <li className='w-full lg:w-auto'><Link href="blog">Blog</Link></li>
+        <li className='w-full lg:w-auto'><Link href="blog">Blogs</Link></li>
                  
           {
             user ? <button onClick={handleLogout} className='bg-rose-600 hover:bg-rose-600 text-xl font-bold text-white px-5 py-2 rounded-md hover:rounded-full' >Logout</button>

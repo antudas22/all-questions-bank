@@ -5,6 +5,7 @@ import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../providers/AuthProvider';
+import { FcGoogle } from "react-icons/fc";
 
 const RegisterForm = () => {
 
@@ -85,7 +86,9 @@ const RegisterForm = () => {
 
         <div className="w-full h-[2px] bg-rose-600 rounded-full"></div>
 
-        <button onClick={handleGoogleLogin} className="py-3 text-sm border-2 border-rose-600 text-rose-600 uppercase rounded-md hover:rounded-full w-full cursor-pointer mt-7">Continue With Google</button>
+        <p className="text-center my-3">Continue With</p>
+
+        <button onClick={handleGoogleLogin} className="flex items-center justify-center gap-2 py-2 text-sm border-2 border-rose-600 text-rose-600 uppercase rounded-md hover:rounded-full w-full cursor-pointer"><FcGoogle className="text-3xl" /> Google </button>
 
         </form>
       </div>

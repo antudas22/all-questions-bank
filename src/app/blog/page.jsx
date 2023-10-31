@@ -1,9 +1,13 @@
 import React from 'react';
 
+export const metadata = {
+    title: "Blogs - AQB"
+}
+
 const BlogPage = () => {
     return (
         <div>
-            Blog
+            Blogs
         </div>
     );
 };

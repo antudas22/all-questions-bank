@@ -1,11 +1,11 @@
 "use client"
 
-
 import { AuthContext } from '../../providers/AuthProvider';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { FcGoogle } from "react-icons/fc";
 
 const LoginForm = () => {
     const {register, formState: {errors}, handleSubmit} = useForm();
@@ -76,7 +76,9 @@ const LoginForm = () => {
 
         <div className="w-full h-[2px] bg-rose-600 rounded-full"></div>
 
-        <button onClick={handleGoogleLogin} className="py-3 text-sm border-2 border-rose-600 text-rose-600 uppercase rounded-md hover:rounded-full w-full cursor-pointer mt-7">Continue With Google</button>
+        <p className="text-center my-3">Continue With</p>
+
+        <button onClick={handleGoogleLogin} className="flex items-center justify-center gap-2 py-2 text-sm border-2 border-rose-600 text-rose-600 uppercase rounded-md hover:rounded-full w-full cursor-pointer"><FcGoogle className="text-3xl" /> Google </button>
 
         </form>
       </div>
