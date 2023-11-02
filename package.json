@@ -11,6 +11,8 @@
   "dependencies": {
     "encoding": "^0.1.13",
     "firebase": "^10.5.2",
+    "jose": "^5.0.1",
+    "jsonwebtoken": "^9.0.2",
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18",

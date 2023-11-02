@@ -1,25 +1,32 @@
 "use client"
 
+import createJWT from '@/utils/createJWT';
 import { AuthContext } from '../../providers/AuthProvider';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { FcGoogle } from "react-icons/fc";
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const LoginForm = () => {
     const {register, formState: {errors}, handleSubmit} = useForm();
 
     const {signIn, googleLogin} = useContext(AuthContext);
+    const search = useSearchParams();
+    const from = search.get("redirectUrl") || "/";
+    const { replace } = useRouter();
 
     // Login Handler
     const handleLogin = async (data) => {
       const {email, password} = data;
       const toastId = toast.loading("Loading...");
       try{
-        const user = await signIn(email, password);
+        await signIn(email, password);
+      await createJWT({ email });
         toast.dismiss(toastId);
-        toast.success('Successfully Signed In')
+        toast.success("Successfully Signed In");
+        replace(from);
       }
       catch (error) {
         toast.dismiss(toastId);
@@ -32,9 +39,11 @@ const LoginForm = () => {
     const handleGoogleLogin = async () => {
       const toastId = toast.loading("Loading...");
       try {
-        const user = await googleLogin();
+        const {user} = await googleLogin();
+        await createJWT({email: user.email});
         toast.dismiss(toastId);
         toast.success('Successfully Signed In')
+        replace(from);
       }
       catch (error) {
         toast.dismiss(toastId);

@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import React, { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
+import toast from 'react-hot-toast';
+import { usePathname, useRouter } from 'next/navigation';
 
 const Navbar = () => {
 
@@ -10,10 +12,23 @@ const Navbar = () => {
 
   // const { displayName, photoURL} = user || {};
 
-  const handleLogout = () => {
-    logOut()
-    .then(() => {})
-    .catch(error => console.error(error))
+  const { replace } = useRouter();
+  const path = usePathname();
+
+  const handleLogout = async () => {
+    try {
+      await logOut();
+    const res = await fetch('/api/auth/logout', {
+      method: "POST",
+    });
+    const data = await res.json();
+    toast.success("Successfully Logout");
+    if(path.includes('/dashboard')){
+      replace("/")
+    }
+    } catch (error) {
+      toast.error("Something Went Wrong");
+    }
   }
 
     const menu = <>
@@ -23,7 +38,7 @@ const Navbar = () => {
         <li className='w-full lg:w-auto'><Link href="blog">Blogs</Link></li>
                  
           {
-            user ? <button onClick={handleLogout} className='bg-rose-600 hover:bg-rose-600 text-xl font-bold text-white px-5 py-2 rounded-md hover:rounded-full' >Logout</button>
+            user ? <button onClick={handleLogout} className='bg-rose-600 hover:bg-rose-600 lg:text-xl lg:font-bold text-white lg:px-5 py-1 lg:py-2 rounded-md hover:rounded-full w-full lg:w-auto' >Logout</button>
             :
             <Link className='bg-rose-600 hover:bg-rose-600 lg:text-xl lg:font-bold text-white lg:px-5 py-1 lg:py-2 rounded-md hover:rounded-full w-full lg:w-auto' href="login">Login</Link>
           }
