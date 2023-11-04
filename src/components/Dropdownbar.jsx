@@ -17,7 +17,7 @@ const Dropdownbar = () => {
                         <li className='second-hover-action'><a href="#">Science</a>
                           <div className="sub-menu-3">
                             <ul>
-                              <li><a className='w-[125px]' href="#">Board Questions</a></li>
+                              <li><a className='w-[125px]' href="/board-questions/s-sci">Board Questions</a></li>
                               <li><a href="#">Test Paper</a></li>
                             </ul>
                           </div>
@@ -25,7 +25,7 @@ const Dropdownbar = () => {
                         <li className='second-hover-action'><a href="#">Commerce</a>
                           <div className="sub-menu-3">
                             <ul>
-                              <li><a className='w-[125px]' href="#">Board Questions</a></li>
+                              <li><a className='w-[125px]' href="/board-questions/s-com">Board Questions</a></li>
                               <li><a href="#">Test Paper</a></li>
                             </ul>
                           </div>
@@ -33,7 +33,7 @@ const Dropdownbar = () => {
                         <li className='second-hover-action'><a href="#">Humanities</a>
                           <div className="sub-menu-3">
                             <ul>
-                              <li><a className='w-[125px]' href="#">Board Questions</a></li>
+                              <li><a className='w-[125px]' href="/board-questions/s-hum">Board Questions</a></li>
                               <li><a href="#">Test Paper</a></li>
                             </ul>
                           </div>
@@ -47,7 +47,7 @@ const Dropdownbar = () => {
                         <li className='second-hover-action'><a href="#">Science</a>
                         <div className="sub-menu-3">
                             <ul>
-                              <li><a className='w-[125px]' href="#">Board Questions</a></li>
+                              <li><a className='w-[125px]' href="/board-questions/h-sci">Board Questions</a></li>
                               <li><a href="#">Test Paper</a></li>
                             </ul>
                           </div>
@@ -55,7 +55,7 @@ const Dropdownbar = () => {
                         <li className='second-hover-action'><a href="#">Commerce</a>
                         <div className="sub-menu-3">
                             <ul>
-                              <li><a className='w-[125px]' href="#">Board Questions</a></li>
+                              <li><a className='w-[125px]' href="/board-questions/h-com">Board Questions</a></li>
                               <li><a href="#">Test Paper</a></li>
                             </ul>
                           </div>
@@ -63,7 +63,7 @@ const Dropdownbar = () => {
                         <li className='second-hover-action'><a href="#">Humanities</a>
                         <div className="sub-menu-3">
                             <ul>
-                              <li><a className='w-[125px]' href="#">Board Questions</a></li>
+                              <li><a className='w-[125px]' href="/board-questions/h-hum">Board Questions</a></li>
                               <li><a href="#">Test Paper</a></li>
                             </ul>
                           </div>

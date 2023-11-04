@@ -1,6 +1,7 @@
 .leave-message:hover{
     padding-left: 300px;
     cursor: pointer;
+    overflow: hidden;
 }
 .message-box{
     display: none;
